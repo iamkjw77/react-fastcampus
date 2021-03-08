@@ -1,0 +1,115 @@
+lecture 안에 과제 코드있음
+5가지 상태
+disabled
+rejected
+resolved
+pending
+idle
+
+디자인은 설계를 하는 것이다.
+따라서 위의 5가지 상태를 준비하자.
+
+React는 도구이다.
+도구는 언제나 바꿀 수 있다.
+컴포넌트 디자인 과제를 해보면서 React 보다 더 중요한 것을 해보자.
+https://yamoo9.gitbook.io/learning-react-app/homework/component-design
+
+<클래스 프로그래밍>
+리액트 패러다임의 변화이 있었다.
+클래스 - 함수
+과제 해보자.
+
+uppendChild => react에서는 mount
+클로저를 사용해서 render함수 안에 함수를 넣어서 button을 만들수있다.
+disabled 상태일 때, cursor: not-arrow
+focus-indicator를 사용해서 focus시 아웃라인을 주자
+
+리액트는 문보다 식을 많이 사용한다.
+alt가 없으면 react가 오류를 발생시켜줌
+그래서 빈 값으로 alt를 줌
+
+==================================
+<커스텀 DOM 모듈>
+function render(vNode, domNode) {
+  domNode.appendChild(_renderElement(vNode))
+}
+
+vNode는 추상화되어 있는 트리구조, 가상돔을 의미
+domNode는 진짜 뷰
+_renderElement는 _가 붙었으므로 private 접근 제한자라는 관례적인 의미이다.(비공개라는 의미)
+즉, _renderElement는 보내지 않겠다는 의미이다.
+domNode에 mount 시킨다는 의미이다.
+
+일반속성과 이벤트 속성을 검사해서 이벤트 속성이면 addEventListener
+
+<커스텀 DOM 모듈> 혼자 해보기, 스타일링 분석해보면서
+
+리엑트와 유사하게 자바스크립트도 element type, props, ...children을 받는다.
+
+명령형 프로그래밍: JS
+선언형 프로그래밍: HTML, CSS, 명시적으로 선언하면서 프로그래밍하는 것
+
+============================
+
+react 소개
+react-native: 모바일 애플리케이션을 만들수 있다.
+ReactDom: 웹 사이트 앱
+React-Native: 모바일 네이티브 앱
+electron: 데스크탑앱
+
+선언형 프로그래밍: 리액트
+
+<React 러닝 다이어그램>
+함수 컴포넌트
+클래스 컴포넌트
+리액트 패러다임이 클래스 패러다임에서 함수 패러다임으로 변경됨
+XML과 유사한 형식의 언어를 제공해준다. => JSX
+
+JSX의 규칙
+<templete> 태그 알아보기
+
+클래스 컴포넌트만이 가지는 특징
+- 상태/라이프 사이클 
+
+함수 컴포넌트
+- useState()
+- useEffect()
+
+클래스가 어려워서 vue가 더 쉽다고 느낀다.
+
+리액트의 탄생
+- 데이터 바인딩을 하지 않겠다.
+- immutable => 바뀐것이 있을 때만 업데이트하겠다.(비교 알고리즘 사용)
+
+배포할때는 min.js를,
+과제가 무야...
+
+
+// build 했던 것을 지우는 명령어
+    "clean": "rm -rf dist"
+
+react는 개발용이 아님
+npm i react react-dom
+
+hot: true 
+//page reload시 특정 모듈이 변경되면 리로드되는 것
+// 더 효율적
+
+// main의 이름값이 name으로 들어옴
+    filename: 'js/[name].js',
+
+npx browserslist
+지원되는 브라우저 나옴
+react IE9이상 지원
+
+browserslist를 구글에 검색
+
+한국에서 1%이상 사용하는 브라우저만 지원하겠다.
+> 1% in KR
+not dead
+not ie < 11
+
+https://yamoo9.gitbook.io/webpack/
+에서 file-loader, style-loader등 설치하는 것 공부하기
+
+create-react-app을 사용하지 않고 쓰는 법을 지금까지 배운것

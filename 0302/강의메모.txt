@@ -1,0 +1,121 @@
+Styled Components - 
+Storybook- CDD 설계에서 도움을 주는도구
+https://hyunseob.github.io/2018/01/08/storybook-beginners-guide/
+
+CDD TDD
+
+SPA - React Router 사용
+React Redux - App state Management
+리덕스는 다 동기처리
+
+Firebase - 인증, DB를 무료로 사용할 수 있다.
+
+=======================================================
+
+$ mkdir react-fastcampus && cd $_
+
+$ git init
+
+README.md 만든 후, add commit 
+
+master에서 main으로 branch 바꾸기
+add, commit 후에 
+$ git branch -M main
+
+원격 저장소와 연결
+git remote add origin 원격저장소 주소
+git remote -v로 연결확인
+
+git open 설치
+npm i -g git-open
+
+git open하면 원격저장소가 열림
+
+대용량 파일 관리 (디자인 파일이 큰 경우) => 
+git lfs install
+git lfs track "*.psd"
+.gitattributes 파일이 생성됨
+
+code .으로 열기
+EditorConfig 확장프로그램 깔고
+우클릭 generate .editorconfig
+.editorconfig 가 생성됨
+
+npm i -g htmlhint
+확장프로그램 htmlhint 설치
+문법을 어긴 html에서 경고가난다.
+
+숨겨진 파일에 있는 내용을 프로젝트 폴더에 복사
+cp ~/.htmlhintrc
+
+프로젝트에 있는 파일을 숨겨진 파일로 복사
+cp .htmlhint ~/.htmlhintrc
+
+텍스트 파일을 json파일로 변경
+setting에서 htmlhint 검색 후, htmlhint 클릭
+첫 번째 edit in setting.json
+"files.associations": {
+        "*.js": "javascriptreact",
+        "*rc": "json",
+        ".browerslistrc": "plaintext",
+        ".zshrc": "python"
+    },
+에 추가하면 json 파일이 색이 나오게 됨
+
+프리티어
+prettierrc, prettier 이그노어? 파일 만들고 작성
+
+직접 백업하는 모드가 있고
+
+포터블 모드가 있다.
+포터블모드는 내 컴퓨터에 vscode 셋팅이 있고, vscode를 킬때 포터블을 가져다가 쓰면 나의 셋팅이 적용됨
+
+스니펫 만들기
+
+$0은 가장 마지막에 커서가 간다.
+$1은 가장 처음에 커서가 간다.
+
+snippet generator 검색 후
+우리가 정한 규칙을 복붙하면 json 파일로 변환해줌
+
+셋팅
+유저 스니펫
+html 입력후, 만든 코드를 복붙하고 
+프리픽스 쓰고 tab누르면 코드 자동 완성됨
+
+commit 규칙 50/72 확인하기 
+
+맨처음 푸시시에는 -u 플래그 붙여주기
+
+git open으로 확인하기
+
+git restore을  git unstage로 바꾸기
+git 앨리어스검색
+
+gitconfig 설정에서
+[init]
+defaultBranch = main
+기본 브랜치를 main으로 바꾸기
+
+실습파일1, 2 만들고 npx serve해서 연결확인
+
+
+스크립트 코드는 defer를 적용하지 않은 경우 
+
+오류가나는 이유
+순서가 중요, utile이 tester보다 위에 있어야 한다.
+웹 브라우저에서는 의존성이 중요하다.
+그런데 그것을 캐치하기 어렵다.
+
+강사님 깃에 들어가서 그날 학습내용 볼 수 있음
+
+크롬 확장프로그램
+octotree 설치 - 깃 로그인
+
+백틱으로 다 바꾸기-  과제
+화살표 함수로 다 바꾸기
+
+es5 코드를 es6 코드로 변경, es6 모듈을 사용해보기
+ex6의 모듈방식을 사용하면서 
+구조분해할당하기 
+<script type="module" src="./src/js/es6/index.js">
