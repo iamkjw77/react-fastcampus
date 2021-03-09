@@ -1,0 +1,142 @@
+.env를 만들면 오류를 만들면 스킵이 가능하다.
+하지만, 오류가 나더라도 스킵해서 문제가 될 수도 있다.
+
+// 폴더(learning-cra)까지 만들어줌
+npm init react-app learning-cra
+
+// 폴더가 있으면 .만 찍으면 됨
+npm init react-app .
+
+cra-template이 기본으로 제공하는 템플릿
+
+npm start
+
+// 프로덱션으로 빌드, 배포용
+npm run build 
+
+// 빌드된 서버를 볼 수 있음
+npx serve -s build
+
+build 폴더에 생기는 것이 배포용 폴더
+
+css를 분리하는 형태는 사용자가 적은 경우, 사용하고
+사용자가 많은 경우, html 인라인 스타일로 합쳐서 적용하는 것이 좋다.
+사용자가 많은데 css를 분리하면 간혹 css가 입혀지지 않은 html만 나오는 경우가 있다.
+
+이잭트? 명령어를 사용해서 webpack을 깔수 있다.
+webpack에서 code spliting? 하면
+
+청크(chunk)- 쪼개져있는 덩어리들이 하나의 덩어리가 됨
+
+public은 정적데이터를 관리할때 사용
+바뀌지 않는 것들(유지되는 것들, 회사로고 등) public에
+바뀌는 것들(svg)같은 것들을 src 폴더에 
+
+TDD: 테스트 기반 개발
+CBD: 컴포넌트 기반 개발
+// peakage.json에 TDD를 기반 개발을 위한 패키지가 다 깔려있으니 사용만 하면된다.
+"@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.1",
+
+App.stories.js // 비주얼로 보여주는 형태
+App.test.js // 터미널에서 결과가 나옴, 함수로직만 테스트
+
+npm test
+p>app 누르면 테스트 결과가 나옴
+
+npm run eject // 꺼내기
+// 꺼내면 못돌려
+commit이 안되면 안됨
+
+CRACO: eject 명령없이 CRA 확장
+// eject는 경험 삼아 해보기
+// eject는 webpack을 압축을 푼것처럼 webpack에 대한 설정파일을 가져오겠다.
+// webpack에 대한 파일을 가져와서 커스터마이징하겠다.
+// 하지만, 그 웹팩 설정파일은 돌릴수없다.
+
+public 폴더 설정
+- index.html title, language, meta 설정
+- index.html, manifest.json, robots.txt 수정
+- 접근성 플러그인을 깔면 저런 설정이 안되어 있으면 아예 렌더링이 안됨
+
+manifest.json // 웹 어플리케이션을 만들때 중요한 정보가 들어있음
+
+link는 HTML 문서에 포함되어 있기때문에 한번만 불러오니 link방식 추천
+
+src: local('Spoca han sans'); // local에 스포카가 있으면 그 폰트 사용
+
+ReactDOM.render(VDOM, 실제 돔)
+
+ // 컴파운드 컴포넌트: 리액트안에 종속된 컴포넌트
+  <React.StrictMode>
+
+reportWebVitals(); // 느려질때 사용?
+
+바벨이 리액트 문법을 js로 바꿔줌
+<div classNAme="App"></div>
+=>
+"use strict";
+
+/*#__PURE__*/
+React.createElement("div", {
+  classNAme: "App"
+});
+
+babel-react 를 깔면 위와 같이 알아서 트랜스파일링 해줌
+
+경고해결
+package.json에
+"rules": {
+      "no-unused-vars": "off"
+    }
+
+IE 고려하기
+react-app-polyfill은 개발성이 아님
+
+폴리필 코드를 가장 위에 작성해야 아래코드가 IE지원이됨
+최소 언어 기능 지원외에 더많은 ES6의 기능을 쓰고 싶은 경우
+import 'react-app-polyfill/stable' 작성
+
+babel polyfill은 이제 폐지됨, 위를 사용
+
+svg를 컴포넌트로 불러올 수 있다.
+그런 기능을 제공해준다.
+public assets
+src assets
+을 잘정해서 넣자
+
+환경변수를 통해서 접근하자
+node의 요소 사용
+process.env.PUBLIC_URL
+
+function getPublicAsset(path) {
+  return `${process.env.PUBLIC_URL}/${path}`
+}
+
+require로 불러오지 말고 환경변수를 통해서 접근하자.
+reset.css 말고 노머라이즈를 사용하자. 
+
+노멀라이즈와 create-react-app이 만나면
+브라우저리스트에 있는 브라우저만 css를 가져옴
+@import-normalize;
+그래서 정적으로 link를 써서 가지고 오는 것보다 @import-normalize;를 쓰는 것이 나은 선택이다.
+
+vue, 스팰트는 html, css, script를 한 파일에서 관리한다.
+리액트는 js, css를 분리해서 사용이 가능하다.
+
+이미지 파일을 불러오면 뒤에 해쉬값이 붙음
+logo.23917j18.png
+[name][contenthash].[ext]
+{}: 인터폴레이션한다
+
+loadPath
+ruby, libsass 는 폐지됨
+dart로 사용
+
+포터블데이터를 VScode에 넣어주면됨
+extentions안에 설치된 확장프로그램 목록이 있음
+
+컴포넌트 기반이기 때문에 인라인스타일을 사용해도 된다.
+
+props안에 객체로 들어와야하기 때문에 style은 객체로 사용한다.
